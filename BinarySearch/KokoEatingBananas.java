@@ -25,6 +25,9 @@ package BinarySearch;
 //.
 //So the answer is k=4 .
 public class KokoEatingBananas {
+    public static void main(String[] args){
+        System.out.println(Math.ceil((double)(10) / (double)(3)));
+    }
     // find how much time it takes to eat all banana if the speed of eating banana is "rate"
     public static int totalHour(int[] nums,int rate){
         int hour = 0;
