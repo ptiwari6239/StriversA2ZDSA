@@ -1,10 +1,11 @@
 package BinarySearch;
 // leetcode :- 1539
-public class KthMissingPositiveNumber {
+ class KthMissingPositiveNumber {
     public static void main(String[] args){
 
+
     }
-    static  int findNumber(int[] arr, int k ){
+     static  int findNumber(int[] arr, int k ){
         int low = 0 ;
         int high = arr.length -1;
         while(low <= high){
