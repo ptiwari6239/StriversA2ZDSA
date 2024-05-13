@@ -1,24 +1,48 @@
 package StackndQueue;
+
+import java.util.Stack;
+
 // leetcode :- 907
 public class SumOfSubarrayMinimums {
     public int sumSubarrayMins(int[] arr) {
-        int[] stk = new int[arr.length+1];
-        int idx=0;
-
-        int[] dp = new int[arr.length];
-        dp[0] = arr[0];
-
-        long res=dp[0];
-        for(int i=1; i<arr.length; i++){
-            while(idx>=0 && arr[stk[idx]]>=arr[i]){
-                idx--;
-            }
-
-            dp[i] = idx<0?arr[i]*(i+1):dp[stk[idx]]+(arr[i]*(i-stk[idx]));
-            res += dp[i];
-            stk[++idx] = i;
+        int n = arr.length ;
+        int[] nsl = getNRL(arr, n);
+        int[] nrl = getNRL(arr, n);
+        long sum = 0 ;
+        int M = 1000000007;
+        for(int i = 0 ; i < n; i++){
+            long d1 = i - nsl[i];
+            long d2 = nrl[i] - i;
+            long totalway = d1*d2;
+            long sumintotal = arr[i] * totalway;
+            sum = (sum + sumintotal) % M;
         }
-
-        return (int)(res%1_000_000_007);
+        return (int) sum;
     }
+    
+    int[] getNSL(int[] arr,int n){
+        int[] result = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for(int i = 0; i < n; i++){
+            while(!st.isEmpty() && arr[st.peek()] > arr[i]){
+                st.pop();
+            }
+            result[i] = st.isEmpty() ? -1: st.peek();
+            st.push(i);
+        }
+        return result;
+    }
+    int[] getNRL(int[] arr, int n){
+        int[] result = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for(int i = n-1; i>=0 ; i--){
+               while(!st.isEmpty() && arr[st.peek()] >= arr[i])
+                    st.pop();
+                
+                result[i] = st.isEmpty() ? n: st.peek();
+                st.push(i);
+        }
+        return result;
+    }
+
 }
