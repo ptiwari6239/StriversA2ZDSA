@@ -13,6 +13,7 @@ public class MaxConsecutiveOnesIII {
                 if(nums[j] == 0)
                     z--;
                 len = Math.max(j-i+1,len);
+                
                 j++;
             }
             else{     
