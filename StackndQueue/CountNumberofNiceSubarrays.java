@@ -30,5 +30,7 @@ public class CountNumberofNiceSubarrays {
                 }
                 return result;
     }
+    
+       
  
 }
