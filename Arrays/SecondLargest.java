@@ -14,10 +14,7 @@ public class SecondLargest {
             if(nums[i] > semax && nums[i] < max)
                 semax = nums[i];
         }
-        
-
         return semax;
-
     }
     static int secondlarge(int[] nums){
      int seclarge = Integer.MIN_VALUE;
