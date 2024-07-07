@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
-
+// leetcode :- 148
 public class SortList {
     
     public static void main(String[] args){
@@ -16,7 +16,7 @@ public class SortList {
         }
 
     }
-    public static LL sort(LL head){
+    public static LL sort(LL head){ // brute force (naive method)
         ArrayList<Integer> nums = new ArrayList<>();
         LL temp = head;
         while(temp != null){
@@ -33,6 +33,7 @@ public class SortList {
         }
         return head;
     }
+
 }
 class LL{
     int val;
